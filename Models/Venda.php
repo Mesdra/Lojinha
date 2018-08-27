@@ -12,7 +12,7 @@ class Venda {
     //lista muitos pra muitos
     private $produtos;
     private $valor;
-    private $dtCompra;
+    private $dataCompra;
     
     function getId() {
         return $this->id;
@@ -31,7 +31,7 @@ class Venda {
         return $this->valor;
     }
     function getDtCompra() {
-        return $this->dtCompra;
+        return $this->dataCompra;
     }
     function setUsuario($usuario) {
         $this->usuario = $usuario;
@@ -49,7 +49,7 @@ class Venda {
         if(!$this->isDate($dtCompra)){
             throw new Exception("Data inválida",14);
         }
-        $this->dtCompra = $dtCompra;
+        $this->dataCompra = $dtCompra;
     }
     
     private function isDate($date){

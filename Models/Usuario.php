@@ -17,8 +17,7 @@ class Usuario {
     private $password;
     //Tipo de fetch: eager
     private $tipoConta;
-    private $isAtivado;
-    
+
     private $minSizeNome = 4;
     private $maxSizeNome = 30;
     
@@ -48,13 +47,6 @@ class Usuario {
     }
     function getTipoConta() {
         return $this->tipoConta;
-    }
-    
-    function getIsAtivado() {
-        return $this->isAtivado;
-    }
-    function setIsAtivado($isAtivado) {
-        $this->isAtivado = $isAtivado;
     }
     function setTipoConta($tipoConta) {
         $this->tipoConta = $tipoConta;
