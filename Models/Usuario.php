@@ -76,16 +76,10 @@ class Usuario {
         $this->email = $email;
     }
     function setDtNascimento($dtNascimento) {
-        if(!$this->isDate($dtNascimento)){
-            throw new Exception("Data de nascimento inválida",4);
-        }
         
         $this->dtNascimento = $dtNascimento;
     }
     function setCpf($cpf) {
-        if(!$this->validaCPF($cpf)){
-            throw new Exception("Cpf inválido",5);
-        }
         $this->cpf = $cpf;
     }
     function setUsername($username) {
@@ -104,43 +98,6 @@ class Usuario {
         $this->password = md5($password);
     }
         
-    private function isDate($date){
-        return 1 === preg_match('~^(((0[1-9]|[12]\\d|3[01])\\/(0[13578]|1[02])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|[12]\\d|30)\\/(0[13456789]|1[012])\\/((19|[2-9]\\d)\\d{2}))|((0[1-9]|1\\d|2[0-8])\\/02\\/((19|[2-9]\\d)\\d{2}))|(29\\/02\\/((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$~',
-            $date
-        );
-        
-    }
     
-    private function validaCPF($cpf = null) {
-	// Verifica se um número foi informado
-	if(empty($cpf)) {return false;}
-	// Elimina possivel mascara
-	$cpf = preg_replace("/[^0-9]/", "", $cpf);
-	$cpf = str_pad($cpf, 11, '0', STR_PAD_LEFT);
-	
-	// Verifica se o numero de digitos informados é igual a 11 
-	if (strlen($cpf) != 11) {
-		return false;
-	}
-	// Verifica se nenhuma das sequências invalidas abaixo 
-	// foi digitada. Caso afirmativo, retorna falso
-	else if ($cpf == '00000000000' || $cpf == '11111111111' || $cpf == '22222222222' || $cpf == '33333333333' || $cpf == '44444444444' || $cpf == '55555555555' || $cpf == '66666666666' || $cpf == '77777777777' || $cpf == '88888888888' || $cpf == '99999999999') {
-		return false;
-	 // Calcula os digitos verificadores para verificar se o
-	 // CPF é válido
-	 } else {   		
-		for ($t = 9; $t < 11; $t++) {
-			
-			for ($d = 0, $c = 0; $c < $t; $c++) {
-				$d += $cpf{$c} * (($t + 1) - $c);
-			}
-			$d = ((10 * $d) % 11) % 10;
-			if ($cpf{$c} != $d) {
-				return false;
-			}
-		}
-		return true;
-	}
-    }
     
 }
