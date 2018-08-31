@@ -14,13 +14,14 @@ class UsuarioDAO {
         if (get_class($usuario) != 'Usuario') {
             return null;
         }
-
+        
+   
         $conn = ConnectionPool::getConnection();
 
-        $sql = "INSERT INTO usuario"
-                . "(`primeiroNome`, `ultimoNome`, `email`, `dtNascimento`, `cpf`, `username`, `password`, `id_tipoConta`, `isAtivado`) "
+        $sql = "INSERT INTO usuario "
+                . "(`primeiro_nome`, `ultimo_nome`, `email`, `data_nascimento`, `cpf`, `username`, `senha`, `tipo_Conta`) "
                 . "VALUES "
-                . "(?,?,?,STR_TO_DATE(?, '%d/%m/%Y'),?,?,?,?,?)";
+                . "(?,?,?,STR_TO_DATE(?, '%d/%m/%Y'),?,?,?,?)";
 
         //Preparando o statement
         if (!$stmt = $conn->prepare($sql)) {
@@ -28,16 +29,23 @@ class UsuarioDAO {
         }
 
         //Setando os parâmetros (i significa que o parâmetro é integer)
-        $isAtivado = true;
         $idTipoConta = 1;
-        $stmt->bind_param("sssssssii", $usuario->getPrimeiroNome(), $usuario->getUltimoNome(), $usuario->getEmail(), $usuario->getDtNascimento(), $usuario->getCpf(), $usuario->getUsername(), $usuario->getPassword(), $idTipoConta, $isAtivado);
-
-        try {
-            $stmt->execute();
-            return $this->login($usuario->getUsername(), $usuario->getPassword());
-        } catch (Exception $ex) {
-            return null;
+        $primeiro_nome = $usuario->getPrimeiroNome();
+        $ultimoNome = $usuario->getUltimoNome();
+        $email = $usuario->getEmail();
+        $data = $usuario->getDtNascimento();
+        $cpf = $usuario->getCpf();
+        $username = $usuario->getUsername();
+        $senha = $usuario->getPassword();
+        
+        $stmt->bind_param("sssssssi", $primeiro_nome, $ultimoNome, $email, $data, $cpf, $username, $senha, $idTipoConta);
+        
+            $result = $stmt->execute();
+           
+            return $result;
+            //return $this->login($usuario->getUsername(), $usuario->getPassword());
+            
         }
-    }
+    
 
 }

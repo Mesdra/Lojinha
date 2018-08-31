@@ -11,8 +11,7 @@
        
         $usuario = new Usuario();
         $usuarioDAO = new UsuarioDAO();
-        echo 'qualquer coisa';
-        try{
+
             $usuario->setPrimeiroNome($_POST['nome']);
             $usuario->setUltimoNome($_POST['sobrenome']);
             $usuario->setUsername($_POST['userName']);
@@ -20,12 +19,9 @@
             $usuario->setEmail($_POST['email']);
             $usuario->setDtNascimento($_POST['data']);
             $usuario->setCpf($_POST['cpf']);
-            $usuarioDAO->cadastrar($usuario);
-            header("Location: ../?successMessage=Usuario cadastrado com sucesso!");
-        } catch (Exception $ex) {
-            header("Location: ../cadastro/usuario.php?errorMessage=" . $ex->getMessage());
-            die();
-        }
+            $result = $usuarioDAO->cadastrar($usuario);
+           echo $result;
+       
     }
 ?>
 
@@ -40,7 +36,7 @@
          <fieldset>
              <legend>Cria Usuario</legend>
              <div>
-                 <label> Nomee </label><br/>
+                 <label> Nome </label><br/>
                  <input type="text" name = "nome"/>
              </div>
              <div>

@@ -7,9 +7,9 @@
  */
 
 class ConnectionPool {
-    private static $servername = "localhost";
-    private static $username = "lojinha";
-    private static $password = "123";
+    private static $servername = "localhost:3306";
+    private static $username = "root";
+    private static $password = "";
     private static $dbname = "lojaDRoupas";
     
     private static $conn = null;
