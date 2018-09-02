@@ -20,6 +20,7 @@
             $usuario->setDtNascimento($_POST['data']);
             $usuario->setCpf($_POST['cpf']);
             $result = $usuarioDAO->cadastrar($usuario);
+            echo $result->getPrimeiroNome();
             header('Location: ../index.php');
        
     }

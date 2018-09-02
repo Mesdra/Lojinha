@@ -43,7 +43,7 @@ class UsuarioDAO {
         
             $result = $stmt->execute();
            
-            return $result;
+            return $usuario;
             //return $this->login($usuario->getUsername(), $usuario->getPassword());
             
         }
