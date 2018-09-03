@@ -17,11 +17,18 @@
             $usuario->setUsername($_POST['userName']);
             $usuario->setPassword($_POST['senha']);
             $usuario->setEmail($_POST['email']);
-            $usuario->setDtNascimento($_POST['data']);
+            $dataform = str_replace('-', '/', $_POST['data']).'<br>';
+            
+            $usuario->setDtNascimento($dataform);
             $usuario->setCpf($_POST['cpf']);
             $result = $usuarioDAO->cadastrar($usuario);
-            echo $result->getPrimeiroNome();
-            header('Location: ../index.php');
+            
+            
+            if($result->getTipoConta() == 2){
+                 header('Location: /cadastroProdutos.php');
+            }
+            echo $result->getEmail();
+            //header('Location: ../index.php');
        
     }
 ?>
