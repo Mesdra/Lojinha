@@ -17,12 +17,24 @@
             $usuario->setUsername($_POST['userName']);
             $usuario->setPassword($_POST['senha']);
             $usuario->setEmail($_POST['email']);
-            $usuario->setDtNascimento($_POST['data']);
+            $dataform = str_replace('-', '/', $_POST['data']).'<br>';
+            
+            $usuario->setDtNascimento($dataform);
             $usuario->setCpf($_POST['cpf']);
             $result = $usuarioDAO->cadastrar($usuario);
+<<<<<<< HEAD
             echo $result->getPrimeiroNome();
             $_SESSION['usuarioLogado'] = serialize($result);
             header('Location: ../index.php');
+=======
+            
+            
+            if($result->getTipoConta() == 2){
+                 header('Location: /cadastroProdutos.php');
+            }
+            echo $result->getEmail();
+            //header('Location: ../index.php');
+>>>>>>> c84dc797135fc252de3f920cae3d8f934f696ae1
        
     }
 ?>
