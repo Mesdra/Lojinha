@@ -8,11 +8,14 @@
 
         $username = $_POST['nome'];
         $senha = $_POST['senha'];
-        
-        $usuarioDAO->login($username, $password);
+         $passwordMd5 = md5($senha);
+       
+       
            
-            
-            header('Location: ../index.php');
+            if($usuarioDAO->login($username, $senha)){
+                header('Location: ../index.php');
+            }
+            echo 'erro ao fazer login';
        
     }
 ?>
@@ -33,7 +36,7 @@
              </div>
              <div>
                  <label> Senha </label><br/>
-                 <input type="password" name = "sobrenome"/>
+                 <input type="password" name = "senha"/>
              </div>
              <br/>
              <div>

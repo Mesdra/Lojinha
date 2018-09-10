@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -49,18 +43,14 @@ and open the template in the editor.
     <body>
      	<div id="menu">
 		<ul>
-			<li><a href="">Home</a></li>
-			<li><a href="">Eestou com Sorte</a></li>
-			<li><a href="">Roupas Esportivas</a></li>
-			<li><a href="">Roupas Sociais</a></li>
-			<li><a href="">Roupas Infantis</a></li>
-                        <li><a href="./cadastro/indexLogin.php">Login</a></li>
-                        <li><a href="/Lojinha/cadastro/indexCadastro.php">Novo Usuario</a></li>
+                    <li><a href="./addProduto.php">Cadastrar Novo Produto</a></li>
+			<li><a href="">Excluir Produto</a></li>
+                        <li><a href="">EditarProduto</a></li>
 		</ul>
 	</div>
         
         <?php session_start();
-              include_once ('./Models/Usuario.php');
+              include_once ('../Models/Usuario.php');
               
             
             if(isset($_SESSION['usuarioLogado']) && !empty($_SESSION['usuarioLogado'])){

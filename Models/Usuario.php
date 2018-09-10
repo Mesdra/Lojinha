@@ -84,8 +84,9 @@ class Usuario {
     }
     function setUsername($username) {
         $sizeNome = strlen($username);
+        echo $username;
         if($sizeNome < $this->minSizeNome || $sizeNome > $this->maxSizeNome){
-            throw new Exception("Senha deve possuir entre 4 e 30 caracteres",6);
+            throw new Exception("Nome do usuario deve possuir entre 4 e 30 caracteres",6);
         }
         $this->username = $username;
     }
