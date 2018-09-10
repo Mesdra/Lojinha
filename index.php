@@ -59,5 +59,10 @@ and open the template in the editor.
 		</ul>
 	</div>
         
+        <?php
+            if(!isset($_SESSION['usuarioLogado']) || empty($_SESSION['usuarioLogago']))
+            
+        ?>
+        
     </body>
 </html>

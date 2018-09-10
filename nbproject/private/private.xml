@@ -5,6 +5,10 @@
         <group>
             <file>file:/opt/lampp/htdocs/Lojinha/cadastro/indexCadastro.php</file>
             <file>file:/opt/lampp/htdocs/Lojinha/index.php</file>
+<<<<<<< HEAD
+=======
+            <file>file:/opt/lampp/htdocs/Lojinha/Models/Usuario.php</file>
+>>>>>>> 5384b16912b399af58b3fa34662b81fccdda2fd1
             <file>file:/opt/lampp/htdocs/Lojinha/conecBanco/ConnectionPool.php</file>
             <file>file:/opt/lampp/htdocs/Lojinha/Dao/UsuarioDAO.php</file>
         </group>
