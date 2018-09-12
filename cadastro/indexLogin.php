@@ -1,5 +1,7 @@
 <?php
-
+      session_start();
+      
+              
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         include_once '../Models/Usuario.php';
         include_once '../Dao/UsuarioDAO.php';
@@ -8,15 +10,22 @@
 
         $username = $_POST['nome'];
         $senha = $_POST['senha'];
-         $passwordMd5 = md5($senha);
+        $passwordMd5 = md5($senha);
        
        
            
-            if($usuarioDAO->login($username, $senha)){
-                header('Location: ../index.php');
+            if($usuarioDAO->login($username, $senha)){ 
+           
+                 $sObj = $_SESSION['usuarioLogado'];
+                 $usuario = unserialize($sObj);
+                
+                if($usuario->getTipoConta() == 1){
+                    header('Location: ./indexLogin.php');
+                }else{
+                    header('Location: ./indexGerenciamentoProdutos.php');
+                }
             }
-            echo 'erro ao fazer login';
-       
+            echo 'Login ou Senha Incorreto';
     }
 ?>
 

@@ -3,12 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/opt/lampp/htdocs/Lojinha/Dao/ProdutoDAO.php</file>
+            <file>file:/opt/lampp/htdocs/Lojinha/Models/Produto.php</file>
             <file>file:/opt/lampp/htdocs/Lojinha/cadastro/addProduto.php</file>
             <file>file:/opt/lampp/htdocs/Lojinha/cadastro/indexCadastro.php</file>
-            <file>file:/opt/lampp/htdocs/Lojinha/cadastro/indexLogin.php</file>
             <file>file:/opt/lampp/htdocs/Lojinha/index.php</file>
             <file>file:/opt/lampp/htdocs/Lojinha/Dao/TipoContaDAO.php</file>
-            <file>file:/opt/lampp/htdocs/Lojinha/Models/Usuario.php</file>
             <file>file:/opt/lampp/htdocs/Lojinha/cadastro/indexGerenciamentoProdutos.php</file>
             <file>file:/opt/lampp/htdocs/Lojinha/Dao/UsuarioDAO.php</file>
         </group>

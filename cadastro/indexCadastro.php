@@ -25,8 +25,10 @@
             $result = $usuarioDAO->cadastrar($usuario);
             echo $result->getPrimeiroNome();
             $_SESSION['usuarioLogado'] = serialize($result);
+         
+            
             header('Location: ./indexLogin.php');
-       
+          
     }
 ?>
 

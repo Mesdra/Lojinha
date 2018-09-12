@@ -34,5 +34,14 @@ class ProdutoDAO {
         }  
           }
 
+         public function executarQuery($sql){
+         $conn = ConnectionPool::getConnection();
+     
+       $resp = $conn->query($sql);
+     
+
+        return $resp;
+        
+        }
         }
      
