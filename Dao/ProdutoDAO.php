@@ -5,6 +5,27 @@ include_once ('../Models/Produto.php');
 include_once ('../conecBanco/ConnectionPool.php');
 
 class ProdutoDAO {
+    
+    public function atualizarProduto($produto,$id){
+        
+        $conn = ConnectionPool::getConnection();
+        
+         $nome_produto = $produto->getNome();
+        $descricao = $produto->getDescricao();
+        $tipo = $produto->getTipoProduto();
+        $valor = $produto->getValor();
+        $qt_estoque = $produto->getQtdEstoque();
+        $path_imagem = $produto->getPathImagem();
+        
+        $sql = "UPDATE produto SET nome='".$nome_produto."',descricao='".$descricao."',tipo_produto=".$tipo.",valor=".$valor.",qtd_estoque=".$qt_estoque.",caminho_img='".$path_imagem."'WHERE id_produtos=".$id.";";
+        
+         if ($conn->query($sql) === TRUE) {
+           return "New record created successfully";
+        } else {
+           return "Error: " . $sql . "<br>" . $conn->error;
+        }
+        
+    }
 
     public function cadastrar($produto) {
         if (get_class($produto) != 'Produto') {
