@@ -20,7 +20,7 @@
                  $usuario = unserialize($sObj);
                 
                 if($usuario->getTipoConta() == 1){
-                    header('Location: ./indexLogin.php');
+                    header('Location: ../index.php');
                 }else{
                     header('Location: ./indexGerenciamentoProdutos.php');
                 }

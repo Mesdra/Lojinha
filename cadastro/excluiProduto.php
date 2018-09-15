@@ -1,5 +1,3 @@
-
-
 <?php
     include_once '../Dao/TipoContaDAO.php';
     include_once '../Models/Produto.php';
@@ -7,19 +5,12 @@
     
       if(isset($_POST['submitTwo'])) {
         
-        $produto = new Produto();
+    
         $produtoDAO = new ProdutoDAO();
       
-
-            $produto->setDescricao($_POST['descricao']);
-            $produto->setNome($_POST['nome_Produto']);
-            $produto->setPathImagem($_POST['caminho_Imagem']);
-            $produto->setQtdEstoque($_POST['quant_Estoque']);
-            $produto->setTipoProduto($_POST['tipo_Produto']);
-            $produto->setValor($_POST['preco']);
-            $produto->setId($_POST['id_produto']);
+            $produto= $_POST['id_produto'];
             
-            $produtoDAO->atualizarProduto($produto);
+            $produtoDAO->deletaProduto($produto);
             
             header('Location: ../cadastro/indexGerenciamentoProdutos.php');
             
@@ -33,7 +24,7 @@
         
      <head>
          <meta charset="ISO-8859-1">
-         <title>EditarProduto</title>
+         <title>ExcluirProduto</title>
      </head>
      <body>
          
@@ -172,7 +163,7 @@
                     <br/>
                      
                     <div>
-                        <input type="submit" name="submitTwo" value="Atualizar Produto"/>
+                        <input type="submit" name="submitTwo" value="Excluir Produto"/>
                     </div>
                 </fieldset>
 

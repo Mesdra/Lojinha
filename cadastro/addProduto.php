@@ -15,7 +15,7 @@
             $produto->setTipoProduto($_POST['tipo_Produto']);
             $produto->setValor($_POST['preco']);
             
-            $produtoDAO->cadastrar($produto);
+            echo $produtoDAO->cadastrar($produto);
             
             
             header('Location: ../cadastro/indexGerenciamentoProdutos.php');
@@ -68,7 +68,7 @@
 
                                         $tipo = $row["descricao"];
 
-                                        echo '<option value='.$row["id_tipo"].'>'.$tipo.'</option>';
+                                        echo '<option value='.$row["id_tipo"].'>'.$row["descricao"].'</option>';
 
                           }
 

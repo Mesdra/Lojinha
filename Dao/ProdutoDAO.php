@@ -6,11 +6,12 @@ include_once ('../conecBanco/ConnectionPool.php');
 
 class ProdutoDAO {
     
-    public function atualizarProduto($produto,$id){
+    public function atualizarProduto($produto){
         
         $conn = ConnectionPool::getConnection();
         
-         $nome_produto = $produto->getNome();
+        $id = $produto->getId();
+        $nome_produto = $produto->getNome();
         $descricao = $produto->getDescricao();
         $tipo = $produto->getTipoProduto();
         $valor = $produto->getValor();
@@ -25,6 +26,20 @@ class ProdutoDAO {
            return "Error: " . $sql . "<br>" . $conn->error;
         }
         
+    }
+    
+    public function deletaProduto($produtoID){
+        
+         $conn = ConnectionPool::getConnection();
+        
+         $sql = "DELETE FROM produto
+WHERE id_produtos=".$produtoID.";";
+         
+            if ($conn->query($sql) === TRUE) {
+           return "New record created successfully";
+        } else {
+           return "Error: " . $sql . "<br>" . $conn->error;
+        }
     }
 
     public function cadastrar($produto) {
@@ -49,9 +64,9 @@ class ProdutoDAO {
                 . "('".$nome_produto."','".$descricao."',".$tipo.",".$valor.",".$qt_estoque.",'".$path_imagem."');";
 
         if ($conn->query($sql) === TRUE) {
-           echo "New record created successfully";
+           return "New record created successfully";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            return "Error: " . $sql . "<br>" . $conn->error;
         }  
           }
 

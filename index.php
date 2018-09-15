@@ -50,7 +50,7 @@ and open the template in the editor.
      	<div id="menu">
 		<ul>
 			<li><a href="">Home</a></li>
-			<li><a href="">Eestou com Sorte</a></li>
+			<li><a href="">Estou com Sorte</a></li>
 			<li><a href="">Roupas Esportivas</a></li>
 			<li><a href="">Roupas Sociais</a></li>
 			<li><a href="">Roupas Infantis</a></li>
