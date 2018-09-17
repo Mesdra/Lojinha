@@ -5,6 +5,34 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
+    <?php 
+$string = ' where valor > 300';
+
+
+switch ($_POST['valor']){
+    case '1000';
+        $string = 'where valor < 1000';
+        $msg= "Até 1000";
+        break;
+    case '2000';
+        $string = 'where valor BETWEEN 1001 AND 2000';
+        $msg= "entre 1001 e 2000";
+        break;
+     case '3000';
+        $string = 'where valor BETWEEN 2001 AND 3000';
+        $msg= "entre 2001 e 3000";
+        break;
+     case '4000';
+        $string = 'where valor BETWEEN 3001 AND 4000';
+        $msg= "entre 3001 e 4000";
+        break;
+    case '';
+        $string = '';
+        break;
+    
+}
+    
+?>
     <head>
         <meta charset="UTF-8">
         <title></title>
@@ -57,10 +85,24 @@ and open the template in the editor.
                         <li><a href="./cadastro/indexLogin.php">Login</a></li>
                         <li><a href="/Lojinha/cadastro/indexCadastro.php">Novo Usuario</a></li>
 		</ul>
+            <form name="formCombo" action="" method="post" enctype="multipart?form-data">
+                <select name="valor">
+                    <option value="" selected> Selecione um Valor </option>
+                    <option value="1000" > Até  R$ 1.000,00 </option>
+                    <option value="2000" > R$ 1.001,00 Até R$ 2.000,00 </option>
+                    <option value="3000" > R$ 2.001,00 Até R$ 3.000,00 </option>
+                    <option value="4000" > Acima 3.001,00 </option>
+                </select>
+                &nbsp;&nbsp;&nbsp;
+                <input type="submit" name="botao" value="Filtrar">
+                   </form>
 	</div>
         
         <?php session_start();
-              include_once ('./Models/Usuario.php');
+              //include_once './Models/Produto.php';
+              include_once './Dao/ProdutoDAO.php';
+              include_once './Models/Usuario.php';
+              include_once './conecBanco/ConnectionPool.php';
               
             
             if(isset($_SESSION['usuarioLogado']) && !empty($_SESSION['usuarioLogado'])){
@@ -72,6 +114,47 @@ and open the template in the editor.
             }
             
         ?>
+        
+        <div id="conteudo">
+            <h1>Vitrine de produtos</h1>
+            
+            <table cellpadding="8" cellspacing="10"border="0" width="100%">
+                <tr>
+                    <?php
+                    
+                      $produtoDao = new ProdutoDao(); 
+     
+
+                      $res = $produtoDao->executarQuery("SELECT * FROM produto $string;");
+                    
+                      
+                    $LoopH = 3 ;
+                   
+                   
+                    $i = 1;
+                    while($row = $res->fetch_assoc()){
+                        if($i < $LoopH){
+                            echo '<td align="center" valing="top" bgcolor="#FFFFFF">'
+                                .'<img src= "'.$row['caminho_img'].'" width ="200" height="150" alt=""/><br/>'
+                                .'Nome: '.$row['nome'].'<br/> '
+                                .'Valor: R$ '. number_format($row['valor'],2,",",".").'</td>';
+                        }elseif($i = $LoopH){
+                            echo '<td align="center" valing="top" bgcolor="#FFFFFF">'
+                                .'<img src= "Imagens/not1.jpg" width ="200" height="150" alt=""/><br/>'
+                                .'Nome: '.$row['nome'].'<br/> '
+                                .'Valor: R$ '. number_format($row['valor'],2,",",".").'</td>'
+                                .'</tr><tr>';
+                            $i = 0;
+                        }
+                        $i++;
+                    }
+                    
+                    ?>
+                    
+                </tr>
+                
+            </table>
+        </div>
         
     </body>
 </html>
