@@ -8,7 +8,7 @@ and open the template in the editor.
     <?php 
 $string = ' where valor > 300';
 
-
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
 switch ($_POST['valor']){
     case '1000';
         $string = 'where valor < 1000';
@@ -29,7 +29,7 @@ switch ($_POST['valor']){
     case '';
         $string = '';
         break;
-    
+}
 }
     
 ?>
@@ -84,6 +84,7 @@ switch ($_POST['valor']){
 			<li><a href="">Roupas Infantis</a></li>
                         <li><a href="./cadastro/indexLogin.php">Login</a></li>
                         <li><a href="/Lojinha/cadastro/indexCadastro.php">Novo Usuario</a></li>
+                        <li><a href="">Sair</a></li>
 		</ul>
             <form name="formCombo" action="" method="post" enctype="multipart?form-data">
                 <select name="valor">
@@ -136,13 +137,13 @@ switch ($_POST['valor']){
                         if($i < $LoopH){
                             echo '<td align="center" valing="top" bgcolor="#FFFFFF">'
                                 .'<img src= "'.$row['caminho_img'].'" width ="200" height="150" alt=""/><br/>'
-                                .'Nome: '.$row['nome'].'<br/> '
-                                .'Valor: R$ '. number_format($row['valor'],2,",",".").'</td>';
+                                .'<a href="DescricaoProdutos.php?id='.$row['id_produtos'].'"> Nome: <strong>'.$row['nome'].'</strong> </a> <br/> '
+                                .'Valor: <strong> R$ '. number_format($row['valor'],2,",",".").'</strong> </td>';
                         }elseif($i = $LoopH){
                             echo '<td align="center" valing="top" bgcolor="#FFFFFF">'
-                                .'<img src= "Imagens/not1.jpg" width ="200" height="150" alt=""/><br/>'
-                                .'Nome: '.$row['nome'].'<br/> '
-                                .'Valor: R$ '. number_format($row['valor'],2,",",".").'</td>'
+                                .'<img src= "'.$row['caminho_img'].'" width ="200" height="150" alt=""/><br/>'
+                                .'<a href="DescricaoProdutos.php?dia='.$row['id_produtos'].'"> Nome: <strong>'.$row['nome'].'</strong> </a> <br/> '
+                                .'Valor: <strong> R$ '. number_format($row['valor'],2,",",".").'</strong> </td>'
                                 .'</tr><tr>';
                             $i = 0;
                         }
