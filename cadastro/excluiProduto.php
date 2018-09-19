@@ -62,8 +62,7 @@
                     <legend>Editar Produto</legend>
                     
                     <div>
-                        <label> Nome Produto </label><br/>
-                        <input type="text" name = "nome_Produto" value= "<?php
+                        <label> Nome Produto = <?php
                 
                         if($_SERVER['REQUEST_METHOD'] === 'POST'){
                             $selected_val = $_POST['lista_De_Produtos'];  // Storing Selected Value In Variable
@@ -73,12 +72,11 @@
                             echo $row["nome"];
                              
                         }
-                    ?>
-                         "/>
+                    ?> </label><br/>
+                     
                     </div>
                     <div>
-                        <label> Descrição </label><br/>
-                        <input type="text" name = "descricao" value="<?php
+                        <label> Descrição = <?php
                 
                         if($_SERVER['REQUEST_METHOD'] === 'POST'){
                             $selected_val = $_POST['lista_De_Produtos'];  // Storing Selected Value In Variable
@@ -88,11 +86,11 @@
                             echo $row["descricao"];
                              
                         }
-                    ?>"/>
+                    ?></label><br/>
+                   
                     </div>
                     <div>
-                        <label> Preco </label><br/>
-                        <input type="float" name = "preco" value="<?php
+                        <label> Preco = <?php
                 
                         if($_SERVER['REQUEST_METHOD'] === 'POST'){
                             $selected_val = $_POST['lista_De_Produtos'];  // Storing Selected Value In Variable
@@ -102,11 +100,11 @@
                             echo $row["valor"];
                              
                         }
-                    ?>"/>
+                    ?></label><br/>
+                    
                     </div>
                     <div>
-                        <label> caminho Imagem </label><br/>
-                        <input type="text" name = "caminho_Imagem" value="<?php
+                        <label> Caminho Imagem = <?php
                 
                         if($_SERVER['REQUEST_METHOD'] === 'POST'){
                             $selected_val = $_POST['lista_De_Produtos'];  // Storing Selected Value In Variable
@@ -116,11 +114,11 @@
                             echo $row["caminho_img"];
                              
                         }
-                    ?>"/>
+                    ?> </label><br/>
+                        
                     </div>
                     <div>
-                        <label> Tipo Produto </label><br/>
-                        <input type="text" name = "tipo_Produto" value="<?php
+                        <label> Tipo Produto = <?php
                 
                         if($_SERVER['REQUEST_METHOD'] === 'POST'){
                             $selected_val = $_POST['lista_De_Produtos'];  // Storing Selected Value In Variable
@@ -130,7 +128,8 @@
                             echo $row["tipo_produto"];
                              
                         }
-                    ?>"/>
+                    ?></label><br/>
+                        
                     </div>
                     <div>
                         <label> ID </label><br/>
@@ -147,8 +146,7 @@
                     ?>"/>
                     </div>
                     <div>
-                        <label> Quantidade em Estoque </label><br/>
-                        <input type="text" name = "quant_Estoque" value="<?php
+                        <label> Quantidade em Estoque = "<?php
                 
                         if($_SERVER['REQUEST_METHOD'] === 'POST'){
                             $selected_val = $_POST['lista_De_Produtos'];  // Storing Selected Value In Variable
@@ -158,7 +156,8 @@
                             echo $row["qtd_estoque"];
                              
                         }
-                    ?>"/>
+                    ?>" </label><br/>
+               
                     </div>
                     <br/>
                      

@@ -1,8 +1,8 @@
 <?php 
 
 
-include_once ('../Models/Produto.php');
-include_once ('../conecBanco/ConnectionPool.php');
+include_once ('./Models/Produto.php');
+include_once ('./conecBanco/ConnectionPool.php');
 
 class ProdutoDAO {
     
@@ -71,6 +71,7 @@ WHERE id_produtos=".$produtoID.";";
           }
 
          public function executarQuery($sql){
+             
          $conn = ConnectionPool::getConnection();
      
        $resp = $conn->query($sql);

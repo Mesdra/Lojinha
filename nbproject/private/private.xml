@@ -7,14 +7,15 @@
             <file>file:/opt/lampp/htdocs/Lojinha/cadastro/editarProduto.php</file>
             <file>file:/opt/lampp/htdocs/Lojinha/cadastro/addProduto.php</file>
             <file>file:/opt/lampp/htdocs/Lojinha/cadastro/indexCadastro.php</file>
-            <file>file:/opt/lampp/htdocs/Lojinha/cadastro/indexLogin.php</file>
             <file>file:/opt/lampp/htdocs/Lojinha/index.php</file>
+            <file>file:/opt/lampp/htdocs/Lojinha/Dao/UsuarioDAO.php</file>
+            <file>file:/opt/lampp/htdocs/Lojinha/DescricaoProdutos.php</file>
+            <file>file:/opt/lampp/htdocs/Lojinha/cadastro/indexLogin.php</file>
             <file>file:/opt/lampp/htdocs/Lojinha/Models/Usuario.php</file>
             <file>file:/opt/lampp/htdocs/Lojinha/cadastro/excluiProduto.php</file>
             <file>file:/opt/lampp/htdocs/Lojinha/Funcoes/Carinho.php</file>
             <file>file:/opt/lampp/htdocs/Lojinha/conecBanco/ConnectionPool.php</file>
             <file>file:/opt/lampp/htdocs/Lojinha/cadastro/indexGerenciamentoProdutos.php</file>
-            <file>file:/opt/lampp/htdocs/Lojinha/Dao/UsuarioDAO.php</file>
         </group>
     </open-files>
 </project-private>
