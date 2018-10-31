@@ -5,8 +5,8 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <?php 
-$string = ' where valor > 300';
+    <?php session_start();
+$string = ' where valor > 10';
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 switch ($_POST['valor']){
@@ -31,6 +31,14 @@ switch ($_POST['valor']){
         break;
 }
 }
+if (isset($_GET['sair']) && $_GET['sair'] == 'true') {
+    
+    unset($_SESSION['usuarioLogado']);
+    unset($_SESSION['carrinhoUsuario']);
+    
+    echo 'Sessão encerrada';  
+}
+
     
 ?>
     <head>
@@ -77,14 +85,20 @@ switch ($_POST['valor']){
     <body>
      	<div id="menu">
 		<ul>
-			<li><a href="">Home</a></li>
-			<li><a href="">Estou com Sorte</a></li>
-			<li><a href="">Roupas Esportivas</a></li>
-			<li><a href="">Roupas Sociais</a></li>
-			<li><a href="">Roupas Infantis</a></li>
-                        <li><a href="./cadastro/indexLogin.php">Login</a></li>
-                        <li><a href="/Lojinha/cadastro/indexCadastro.php">Novo Usuario</a></li>
-                        <li><a href="">Sair</a></li>
+			<li><a href="index.php">Home</a></li>
+			<li><a href="index.php?Tipo=1">Computadores</a></li>
+			<li><a href="index.php?Tipo=2">Fone de Ouvido</a></li>
+			<li><a href="index.php?Tipo=3">Teclado</a></li>
+			<li><a href="index.php?Tipo=4">Mouse</a></li>
+                        <?php 
+                        if(empty($_SESSION['usuarioLogado']) && !isset($_SESSION['usuarioLogado'])){
+                            echo '<li><a href="./cadastro/indexLogin.php">Login</a></li>';  
+                            echo '<li><a href="/Lojinha/cadastro/indexCadastro.php">Novo Usuario</a></li>';
+                             }else{
+                             echo '<li><a href="/Lojinha/indexCarrinho.php">Carrinho</a></li>';
+                             echo '<li><a href="index.php?sair=true">Sair</a></li>';
+                             }           
+                        ?>
 		</ul>
             <form name="formCombo" action="" method="post" enctype="multipart?form-data">
                 <select name="valor">
@@ -99,7 +113,7 @@ switch ($_POST['valor']){
                    </form>
 	</div>
         
-        <?php session_start();
+        <?php 
               //include_once './Models/Produto.php';
               include_once './Dao/ProdutoDAO.php';
               include_once './Models/Usuario.php';

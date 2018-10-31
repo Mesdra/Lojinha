@@ -1,5 +1,4 @@
 <?php
-
 /* 
   @author vinicius
 
@@ -8,7 +7,26 @@
 class Carrinho{
     
     private $usuario;
-    private $produtos;
+    private $produtos = array();
+    private $quant = array();
+    
+    function addAoCarrinho($produto,$quantidade){
+        
+        for($i =0; $i <= 50; $i++ ){  
+            
+            if(empty($this->produtos[$i])){
+                $this->produtos[$i]= $produto;
+                $this->quant[$i]= $quantidade;
+                echo $produto;
+                 $s_Car = serialize($this);
+                $_SESSION['carrinhoUsuario'] = $s_Car;
+                return;
+            }
+            echo $this->produtos[$i];
+        }
+    }
+  
+    
         
     function getUsuario(){
         

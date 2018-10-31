@@ -7,6 +7,7 @@
  */
 include_once ('../Models/Usuario.php');
 include_once ('../conecBanco/ConnectionPool.php');
+include_once ('../Models/Carrinho.php');
 
 class UsuarioDAO {
 
@@ -67,7 +68,11 @@ class UsuarioDAO {
           
         }
         $s_Obj = serialize($usuario);
+        $carrinho = new Carrinho();
+        $carrinho->setUsuario($usuario->getId());
+        $s_Car = serialize($carrinho);
         $_SESSION['usuarioLogado'] = $s_Obj;
+        $_SESSION['carrinhoUsuario'] = $s_Car;
         return true;
     } else {
         echo "0 resultss";
