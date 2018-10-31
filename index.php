@@ -46,7 +46,7 @@ if (isset($_GET['sair']) && $_GET['sair'] == 'true') {
         <title></title>
         	<title>Menu Horizontal</title>
 	<style type="text/css">
-	<!--
+	
 		body {
 			padding:0px;
 			margin:0px;
@@ -78,7 +78,7 @@ if (isset($_GET['sair']) && $_GET['sair'] == 'true') {
 			color: #6D6D6D;
 			border-bottom:3px solid #EA0000;
 		}
-	-->
+	
 	</style>
         
     </head>
