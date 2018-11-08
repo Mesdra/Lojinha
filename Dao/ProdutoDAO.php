@@ -1,8 +1,8 @@
 <?php 
 
 
-include_once ('./Models/Produto.php');
-include_once ('./conecBanco/ConnectionPool.php');
+include_once ('/opt/lampp/htdocs/Lojinha/Models/Produto.php');
+include_once ('/opt/lampp/htdocs/Lojinha/conecBanco/ConnectionPool.php');
 
 class ProdutoDAO {
     
@@ -18,7 +18,7 @@ class ProdutoDAO {
         $qt_estoque = $produto->getQtdEstoque();
         $path_imagem = $produto->getPathImagem();
         
-        $sql = "UPDATE produto SET nome='".$nome_produto."',descricao='".$descricao."',tipo_produto=".$tipo.",valor=".$valor.",qtd_estoque=".$qt_estoque.",caminho_img='".$path_imagem."'WHERE id_produtos=".$id.";";
+        $sql = "UPDATE produto SET nome='$nome_produto',descricao='$descricao',tipo_produto=$tipo,valor=$valor,qtd_estoque=$qt_estoque,caminho_img='$path_imagem'WHERE id_produtos=$id;";
         
          if ($conn->query($sql) === TRUE) {
            return "New record created successfully";
@@ -33,7 +33,7 @@ class ProdutoDAO {
          $conn = ConnectionPool::getConnection();
         
          $sql = "DELETE FROM produto
-WHERE id_produtos=".$produtoID.";";
+WHERE id_produtos=$produtoID;";
          
             if ($conn->query($sql) === TRUE) {
            return "New record created successfully";
@@ -46,7 +46,7 @@ WHERE id_produtos=".$produtoID.";";
         if (get_class($produto) != 'Produto') {
             return null;
         }
-        
+
    
         $conn = ConnectionPool::getConnection();
        
@@ -61,7 +61,7 @@ WHERE id_produtos=".$produtoID.";";
         $sql = "INSERT INTO produto "
                 . "( `nome`, `descricao`,`tipo_produto`, `valor`, `qtd_estoque`, `caminho_img`) "
                 . "VALUES "
-                . "('".$nome_produto."','".$descricao."',".$tipo.",".$valor.",".$qt_estoque.",'".$path_imagem."');";
+                . "('$nome_produto','$descricao',$tipo,$valor,$qt_estoque,'$path_imagem');";
 
         if ($conn->query($sql) === TRUE) {
            return "New record created successfully";

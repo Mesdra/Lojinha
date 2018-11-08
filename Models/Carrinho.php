@@ -6,9 +6,9 @@
 
 class Carrinho{
     
-    private $usuario;
-    private $produtos = array();
-    private $quant = array();
+    public $usuario;
+    public $produtos = array();
+    public $quant = array();
     
     function addAoCarrinho($produto,$quantidade){
         

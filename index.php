@@ -156,7 +156,7 @@ if (isset($_GET['sair']) && $_GET['sair'] == 'true') {
                         }elseif($i = $LoopH){
                             echo '<td align="center" valing="top" bgcolor="#FFFFFF">'
                                 .'<img src= "'.$row['caminho_img'].'" width ="200" height="150" alt=""/><br/>'
-                                .'<a href="DescricaoProdutos.php?dia='.$row['id_produtos'].'"> Nome: <strong>'.$row['nome'].'</strong> </a> <br/> '
+                                .'<a href="DescricaoProdutos.php?id='.$row['id_produtos'].'"> Nome: <strong>'.$row['nome'].'</strong> </a> <br/> '
                                 .'Valor: <strong> R$ '. number_format($row['valor'],2,",",".").'</strong> </td>'
                                 .'</tr><tr>';
                             $i = 0;

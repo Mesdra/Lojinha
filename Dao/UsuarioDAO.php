@@ -5,9 +5,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-include_once ('../Models/Usuario.php');
-include_once ('../conecBanco/ConnectionPool.php');
-include_once ('../Models/Carrinho.php');
+include_once ('/opt/lampp/htdocs/Lojinha/Models/Usuario.php');
+include_once ('/opt/lampp/htdocs/Lojinha/conecBanco/ConnectionPool.php');
+include_once ('/opt/lampp/htdocs/Lojinha/Models/Carrinho.php');
 
 class UsuarioDAO {
 
@@ -29,25 +29,25 @@ class UsuarioDAO {
         $senha = $usuario->getPassword();
         
         
-        $sql = "INSERT INTO usuario "
+         $sql = "INSERT INTO usuario "
                 . "(`primeiro_nome`, `ultimo_nome`, `email`, `data_nascimento`, `cpf`, `username`, `senha`, `tipo_Conta`) "
                 . "VALUES "
-                . "('".$primeiro_nome."','".$ultimoNome."','".$email."','".$data."','".$cpf."','".$username."','".$senha."',".$idTipoConta.")";
+                . "('$primeiro_nome','$ultimoNome','$email','$data','$cpf','$username','$senha',$idTipoConta)";
 
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
-           
+
            header('Location: ../cadastro/indexLogin.php');
             
         }
          public function login($username, $password){
              $passwordMd5 = md5($password);
         $conn = ConnectionPool::getConnection();
-        
-        $sql = "SELECT u.id_usuario, u.primeiro_nome, u.ultimo_nome,u.email, u.data_nascimento, u.cpf, u.username, u.tipo_Conta FROM usuario u WHERE u.username = '".$username."' AND u.senha = '".$passwordMd5."';";
+
+        echo $sql = "SELECT u.id_usuario, u.primeiro_nome, u.ultimo_nome,u.email, u.data_nascimento, u.cpf, u.username, u.tipo_Conta FROM usuario u WHERE u.username = '$username' AND u.senha = '$passwordMd5' ;";
       
        $result = $conn->query($sql);
        

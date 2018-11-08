@@ -1,12 +1,12 @@
 <?php
-    include_once '../Dao/TipoContaDAO.php';
-    include_once '../Models/Produto.php';
-    include_once '../Dao/ProdutoDAO.php';
+    include_once '/opt/lampp/htdocs/Lojinha/Dao/TipoContaDAO.php';
+    include_once '/opt/lampp/htdocs/Lojinha/Models/Produto.php';
+    include_once '/opt/lampp/htdocs/Lojinha/Dao/ProdutoDAO.php';
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         $produto = new Produto();
         $produtoDAO = new ProdutoDAO();
-      
+
 
             $produto->setDescricao($_POST['descricao']);
             $produto->setNome($_POST['nome_Produto']);
@@ -59,16 +59,16 @@
                             include_once '../Dao/TipoContaDAO.php';
                             $tipocontaDao = new TipoContaDao(); 
 
-                          $result = $tipocontaDao->executarQuery("SELECT * FROM tipo_produto tp;");
+                          $result = $tipocontaDao->executarQuery("SELECT * FROM tipo_produto;");
+
 
 
                           echo "<select name='tipo_Produto'>";
 
                           while ($row = $result->fetch_assoc()) {
-
-                                        $tipo = $row["descricao"];
-
-                                        echo '<option value='.$row["id_tipo"].'>'.$row["descricao"].'</option>';
+                              $id = $row["id_tipo"];
+                              $descr = $row["descricao"];
+                             echo  "<option value=$id>$descr</option>";
 
                           }
 
