@@ -46,7 +46,7 @@
                     <li><a href="./addProduto.php">Cadastrar Novo Produto</a></li>
                     <li><a href="./excluiProduto.php">Excluir Produto</a></li>
                     <li><a href="./editarProduto.php">EditarProduto</a></li>
-                    <li><a href="../index.php.php">Sair</a></li>
+                    <li><a href="../index.php?sair=true">Sair</a></li>
 		</ul>
 	</div>
         

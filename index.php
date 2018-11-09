@@ -96,6 +96,7 @@ if (isset($_GET['sair']) && $_GET['sair'] == 'true') {
                             echo '<li><a href="/Lojinha/cadastro/indexCadastro.php">Novo Usuario</a></li>';
                              }else{
                              echo '<li><a href="/Lojinha/indexCarrinho.php">Carrinho</a></li>';
+                             echo '<li><a href="/Lojinha/indexListaComprasFinalizadas.php">Compras Realizadas</a></li>';
                              echo '<li><a href="index.php?sair=true">Sair</a></li>';
                              }           
                         ?>
